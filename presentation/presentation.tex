@@ -1,0 +1,116 @@
+%    author: Steve Göring
+%    contact: stg7@gmx.de
+%    2014
+
+\documentclass{beamer}
+\usepackage[orientation=landscape,size=custom,width=16,height=9,scale=0.5,debug]{beamerposter}
+
+% für deutsche umlaute und ut8
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} % moderne schriftart
+
+\usepackage{ngerman}
+
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{shapes,shadows,snakes,arrows,matrix,calc,er}
+\usepackage{framed, color}
+
+% farbdefinitionen
+\definecolor{lightblue}{rgb}{0,0.6,1.0}
+\definecolor{lightgray}{rgb}{0.4,0.4,0.4}
+\definecolor{blue}{rgb}{0,0.3,0.6}
+\definecolor{darkblue}{rgb}{0,0.1,0.4}
+\definecolor{green}{rgb}{0,0.7,0.2}
+\definecolor{darkerblue}{rgb}{0,0,0.4}
+% design änderungen
+\setbeamertemplate{footline}[frame number]
+\setbeamercolor{title}{fg=darkerblue}
+\setbeamercolor{author}{fg=lightgray}
+\setbeamercolor{frametitle}{fg=darkerblue}
+\setbeamercolor{background canvas}{bg=white}
+
+
+\setbeamercovered{transparent}
+
+\usebackgroundtemplate{
+
+}
+\setbeamertemplate{footline}
+{%
+\leavevmode%
+\hbox{\begin{beamercolorbox}[wd=.9\paperwidth,ht=2.5ex,dp=1.125ex]{author in head/foot}%
+\usebeamerfont{author in head/foot}\centering \insertsection ~~\insertsubsection
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.1\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm ,rightskip=.3cm plus1fil]{title in head/foot}%
+\usebeamerfont{title in head/foot}\hfill\insertframenumber/\inserttotalframenumber
+\end{beamercolorbox}}%
+\vskip0pt%
+}
+
+\renewcommand\sfdefault{phv}
+\renewcommand\familydefault{\sfdefault}
+% bold- text
+%\renewcommand{\seriesdefault}{\bfdefault}
+
+\usepackage{pgfplots}
+
+\usetikzlibrary{shadows}
+\usetikzlibrary{shadings}
+
+% todo makro
+\newcommand{\todo}[1]{\textcolor{red}{#1}}
+% hide makro
+\newcommand{\hide}[1]{}
+
+
+\newcommand{\G}[1]{\textcolor{green}{#1}}
+\newcommand{\R}[1]{\textcolor{red}{#1}}
+\newcommand{\B}[1]{\textcolor{blue}{#1}}
+
+% infos
+\title{
+    Titel
+}
+\subtitle{
+    --Subtitel-- \\
+    XY
+}
+\author{Steve Göring}
+\date{\today}
+
+\begin{document}
+
+\frame{
+    \titlepage
+}
+
+\frame{
+    \frametitle{Gliederung}
+    \tableofcontents
+}
+\section{Intro}
+\frame{
+    \frametitle{Intro}
+
+    \begin{itemize}
+        \item Test
+        \item $c^2 = a^2 + b^2$
+    \end{itemize}
+
+
+}
+
+
+\frame{
+    \frametitle{Fragen?}
+    Vielen Dank für Ihre Aufmerksamkeit.
+
+}
+
+
+\end{document}
+
