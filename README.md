@@ -4,7 +4,7 @@ a few latex templates
 
 presentations
 -------------
-beamer modifications and template
+beamer modifications and template (dark and light theme)
 
 smalldocs
 ---------
@@ -21,4 +21,16 @@ template for complete application and cv
 letter
 ------
 letter template
+
+expose
+------
+template for expose (sometimes needed in science)
+
+pdfforms
+--------
+experiments with pdf formulars
+
+thesis
+------
+template for master/bachelor thesis (one-side, can be changed to two-side)
 

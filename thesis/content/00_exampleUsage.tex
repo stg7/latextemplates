@@ -1,0 +1,229 @@
+\chapter{Benutzung der Vorlage}
+
+Das vorliegende Dokument dient als Vorlage .
+
+Im folgenen soll ein kurzer Überblick über die Möglichkeiten von Latex gegeben werden.
+
+Dies hier ist ein Bibtex-Verweis \cite{sparqlAlgebra}.
+Und gleich noch einer \cite{coresparql}. Und noch einer \cite[Kapitel X, Seit XY ff]{sparqlAlgebra}
+
+Für bibtex einträge kann man verschiedene Quellen benutzen,
+beispielsweise bietet
+\url{http://scholar.google.de/} Bibtex Export (unter einstellungen umstellen),
+oder \url{http://books.google.de} , oder \url{http://citeseerx.ist.psu.edu}
+oder \url{http://ieeexplore.ieee.org/}
+
+\section{Aufzählungen}
+
+Aufzählungen als Anstriche
+\begin{itemize}
+    \item Punkt 1
+    \item Punkt 2
+        \begin{itemize}
+            \item Punkt 1
+            \item Punkt 2
+                \begin{itemize}
+                    \item Punkt 1
+                    \item Punkt 2
+                \end{itemize}
+        \end{itemize}
+\end{itemize}
+
+oder numeriert
+\begin{enumerate}
+    \item Punkt 1
+    \item Punkt 2
+\end{enumerate}
+
+\section{Tabellen}
+
+Tabellen in Latex, einfacher gehts nimmer:
+
+\begin{center}
+    \begin{tabular}{|l|cc|}
+        \hline
+        \hline
+        a & b & c \\
+        \hline
+        \hline
+        a & y  & z \\
+        \hline
+        1 & 2 & 3 \\
+        \hline
+        \hline
+    \end{tabular}
+\end{center}
+Besser Tabelle~\ref{tbl:smartptrTime} (Tabellen in Büchern haben zur besseren Optik keine vertikalen Linien!):
+\begin{table}[ht]
+    \centering
+
+    \caption{\% Zeitbedarf für Smart-Pointer/Raw-Pointer im Projekt}
+    \begin{tabular}{lrrrr}
+    \toprule
+    ~ &  Smart-Pointer (boost) & raw &  & \\
+    \midrule
+    builddb &  $\approx 42\%$ & $\approx 4.2\%$ & &  \\
+    \midrule
+    Q1 & $\approx 35\%$ & $\approx 3.5\%$ & & \\
+    Q2 & $\approx 40\%$ & $\approx 4\%$ & & \\
+    Q3 & $\approx 0.5\%$& $\approx 0.05\%$ & & \\
+    Q4 & $\approx 36\%$& $\approx 3.6\%$& & \\
+    Q5 & $\approx 3.5\%$&$\approx 0.35\%$ & & \\
+
+    \bottomrule
+
+    \end{tabular}
+    \label{tbl:smartptrTime}
+\end{table}
+
+
+\section{Mathematische Formeln}
+
+Formel \ref{form1} sollte jedem Bekannt vorkommen.
+
+\begin{equation}
+    e = m \cdot c^2
+    \label{form1}
+\end{equation}
+\[ v = \frac{s}{t} \]
+Und noch ein wenig Mathematik zeigt Formel \ref{form2}
+\begin{equation}
+    \ln(e) + \sin^2(p) + \cos^2 (p) = \sum_{n=0}^{\infty} \left(\frac{1}{2}\right)^n
+    \label{form2}
+\end{equation}
+
+\section{Theorem}
+\begin{definition}
+Definition1
+\end{definition}
+\begin{definition}
+Definition2
+\end{definition}
+
+
+\section{Bilder}
+\Happy{} \Okay{} \Bad{}
+Abbildung~\ref{pic:logo} zeigt das Logo in den Text eingebettet.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width = 0.4\textwidth]{images/logo}
+    \caption{Logo }
+    \label{pic:logo}
+\end{figure}
+
+\lipsum{1234}
+
+Das ganze mit Tikz:
+\begin{figure}
+    \begin{center}
+        \begin{tikzpicture}
+            \tikzstyle{every entity}=[fill=blue!20,draw=blue,thick]
+            \tikzstyle{every relationship}=[fill=orange!20,draw=orange,thick,aspect=1.5]
+
+            \node[entity] (sheep) at (0,0) {Sheep};
+            \node[entity] (genome) at (4,0) {Genome};
+            \node[relationship] at (2,1.5) {has}
+                edge (sheep)
+                edge (genome);
+            \draw[->] (sheep) -- (genome);
+        \end{tikzpicture}
+    \end{center}
+    \label{pic:bla}
+
+    \caption{bla}
+
+\end{figure}
+
+
+
+
+\section{Algorithmen}
+
+\begin{algorithm}[H]
+    \SetAlgoLined
+    \KwData{this text}
+    \KwResult{how to write algorithm with \LaTeX2e }
+    initialization\;
+    \While{not at end of this document}{
+        read current\;
+        \eIf{understand}{
+            go to next section\;{}
+            current section becomes this one\;{}
+        }{
+            go back to the beginning of current section\;{}
+        }
+    }
+    \For{ i= 1 ,i<10,i++ } {
+        bla(i)\;
+    }
+\caption{How to write }
+\end{algorithm}
+
+
+\section{Blindtext}
+
+\subsection{blindtext package}
+\blindtext[2]
+
+\subsection{lipsum package}
+Lipsum paragraphen 4-5 \\
+\lipsum[4-5]
+
+\subsection{text}
+
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+Hier steht richtig viel Text.
+

@@ -1,0 +1,122 @@
+\chapter{Grundlagen}
+
+\section{Openstreetmap}
+Openstreetmap : \cite{OSM}
+\subsection{Export der XML Daten / Großstädte}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width = \textwidth, keepaspectratio]{images/osmexport}
+    \caption{OSM manueller Export \url{http://www.openstreetmap.org/?lat=50.982&lon=11.0414&zoom=12&layers=M}}
+\end{figure}
+
+OSM Exports für Großstädte sind zu finden unter \cite{Metro}.
+
+
+In der webgui des osm Projektes kann direkr ein export eines aktuell betrachteten kartenausschnitt erfolgen. 
+Die webanfragen sind aber auf xyz knoten begrenzt, so dass es nicht direkt möglich ist Großstädte zu exportieren. 
+Eine Möglichkeit wäre direkt mit der planet.osm Datei zu arbeiten und die jeweilige Großstadt zu extrahieren- 
+aber dazu ist es nötig in der planet.osm ( rund 200 gb) die jeweilige Stadtregion zu ermitteln und anschließend weiterzuarbeiten
+- was entweder bedeutet eine selektion auf den stadtrelevanten daten durchzuführen oder dauerhaft in der planet.osm zu suchen. 
+Beide Ansätze verursachen einen xml scan einer xyz gb großen datei (zu zeitaufwendig).  
+Diese Möglichkeit wurde nicht weiter betrachtet, da es auf xyzurl ein Projekt gibt welches extrahierte Großstädte 
+von planet.osm bereitstellt und dazu noch recht aktuell ist. 
+
+
+\subsection{Aufbau XML Format}
+
+\lstdefinelanguage{XML}{
+  basicstyle=\ttfamily\color{darkblue}\bfseries,
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  stringstyle=\color{black},
+  identifierstyle=\color{darkblue},
+  keywordstyle=\color{cyan},
+  showstringspaces=false
+}
+{\smaller
+\begin{lstlisting}[language=XML]
+<osm ... >
+    <node id="$ID" lat="$LAT" lon="$LON" ... >
+        ...
+        <tag k="$KEY" v="$VALUE"/>
+        ...
+    </node>
+    ...
+    <way id="$ID" ... >
+        ...
+        <nd ref="$REF"/>
+        ...
+        <tag k="$KEY" v="$VALUE"/>
+        ...
+    </way>
+    ...
+    <relation id="$ID" ... >
+        ...
+        <member type="$TYPE" ref="$REF" ... />
+        ...
+        <tag k="$KEY" v="$VALUE" />
+        ...
+    </relation>
+    ...
+</osm>
+\end{lstlisting}
+}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width = 0.5\textwidth, keepaspectratio]{images/osmGraph}
+    \caption{OSM Dateiaufbau}
+\end{figure}
+
+Ein von osm exportierter kartenausschnitt im osm Format besteht aus 3 haupteilen (vgl grafik) :
+\begin{itemize}
+  \item node tags: speichern positionen und weiter informationen zu einem gps messpunkt für die karte, erhalten eindeutige id
+  \item way tags: speichern zusammenhängende wegmesspunkte, vgl typischen osm tracking ablauf. Gespeichert werden alle knoten 
+    (mittels nd tags und referenzen auf die node ids) zusätzlich aber auch Informationen über die art des weges (wegtyp) 
+    oder namen usw...jeder weg erhält auch eine eindeutige wegid
+  \item relation tags: speichern meta wissen über Kompositionen von wegen und nodes; z.b.  
+    Gebäudeumrisse, Wanderwege, spezielle Gebiete, öffentliche Transportlinien.
+\end{itemize}
+
+
+\subsection{Transporttypen}
+\cite{OSMTransport1}
+\cite{OSMTransport2}
+\subsection{Koordinaten/Projektion (Mercantor Projektion)}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width = 0.25\textwidth, keepaspectratio]{images/longLat}
+    \caption{Long/Lat Darstellung  }
+\end{figure}
+\todo{Missing Radius in der Grafik}
+
+\subsection{sphärische Koordinaten}
+In der Kartographie werden die Koordinaten eines Ortes typischerweise in latitude und longitide angegeben (vgl Abbildung xy). 
+Auch  openstreetmap benutzt diese koordinaten (da sie direkt durch das gps tagging hervorgehen). 
+Da sphärische koordinaten Punkte auf Kugeloberflächen abbilden aber Karten normalerweise 2 dimensional sind wird eine Projektion durchgeführt.
+Openstreetmap benutzt dazu die Mercator-Projektion (vgl quelle). 
+Für kleine Kartenausschnitte müsste keine Projektion durchgeführt werden, aber in diesem Projekt sollen Großstädte untersucht werden 
+- wobei durch die genauere Projektion auch sichergestellt werden kann, dass die Entfernungsberechnung möglichst genau ist 
+und desweiteren grafische Projektionen  vergleichbar mit openstreetmap bleiben
+
+
+
+\cite{OSMMercator}
+\subsection{Distanzen (sphärische trigonometrie)}
+
+\section{Graphen}
+\subsection{....}
+\subsection{Dot}
+\subsection{Metriken..}
+== metriken
+Durchschnittlicher knotengrad ( quelle)
+Clusterkoeffizient (global, lokal)
+
+
+\section{Simulation}
+ein paar worte zur Simulationsumgebung -> Aufbau -> wo soll es erweitert werden
+\subsection{Formales Modell}
+\subsection{....}
+
+

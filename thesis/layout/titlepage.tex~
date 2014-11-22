@@ -1,0 +1,64 @@
+\begin{titlepage}
+   
+    \centering
+    \includegraphics [scale=1.2] {images/logo.pdf} \\[1em]
+    
+    % INFOS
+    \institut \\
+    \fakultaet \\
+    \fachgebiet \\[8em]
+
+    % art und thema
+    {\large \art} \\[1cm]
+    
+    {\LARGE \bf \thema} \\[1cm]
+    
+    % authoren infos
+    \begin{tabular}{rl}
+        vorgelegt von:  & \onecm \author \\[0.5em]
+        Matrikel:       & \onecm \matrikel \\[0.5em]
+        Betreuer:       & \onecm \prof \\
+                        & \onecm \betreuer \\
+        \hline
+    \end{tabular}
+    \\[10em]
+    
+    \ort, den \today
+\end{titlepage}
+
+\clearpage
+\addchap*{Danksagung}
+\thispagestyle{empty}
+~ \\[4em]
+\begin{quote}
+    \begin{flushright}
+    "`\textit{Leider läßt sich eine wahrhafte Dankbarkeit mit Worten nicht ausdrücken.}"' 
+        \bigskip
+      \textsc{Johann Wolfgang von Goethe}
+    \end{flushright}    
+\end{quote}
+~\\[2em]    
+Besonderen Dank möchte ich meinen Betreuern \betreuer~und \prof~aussprechen.
+Desweiteren bedanke ich mich bei meinen Freunden in Ilmenau, die mir auch
+in den stressigsten Situationen immer einen anderen Blickwinkel verschafft haben.
+Bei Martin Meyer möchte ich mich besonders bedanken, ohne ihn wäre ich an
+vielen Wochentagen verhungert ;-).
+~\\[2em]
+Zu guter Letzt gehört meiner Mutter Petra Göring und meinem Onkel Rolf Göring 
+Dank, da sie mir das Studium ermöglicht haben und mir immer zur Seite standen.
+~\\[2em]
+Besonders wichtig für diese \art war außerdem die Entdeckung des Kaffees
+und des 26 Stunden Tages, denn ohne beide wären große Teile dieser Arbeit nie 
+vollständig geworden.
+~\\[2em]
+\begin{quote}
+    \begin{flushright}
+        "`\textit{Ich habe solange ein Motivationsproblem, bis ich ein Zeitproblem habe!}"'
+        \bigskip{}
+        \textsc{Unbekannt}
+    \end{flushright}
+\end{quote}
+
+
+\clearpage
+ 

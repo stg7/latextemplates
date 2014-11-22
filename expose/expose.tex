@@ -1,0 +1,139 @@
+\documentclass[ngerman,a4paper,10pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} % moderne schriftart
+
+\usepackage{enumerate}
+\usepackage{subfigure}
+
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{xcolor}
+\newcommand{\G}[1]{{ \color{green!45!black}#1}}
+\newcommand{\R}[1]{{ \color{red!45!black}#1}}
+
+\usepackage{listings}
+\lstset{tabsize=4,
+    basicstyle=\footnotesize\ttfamily,
+    stringstyle=\color{Orange},
+    showstringspaces=false,
+    columns=fixed,
+    numbers=left,
+    numberstyle=\tiny\ttfamily,
+    numbersep=15pt,
+    commentstyle=\color{LimeGreen},
+    language=[GNU]C++,
+    identifierstyle=\color{MidnightBlue}}
+
+\usepackage{graphicx}
+\usepackage[colorlinks]{hyperref}
+%\usepackage[colorinlistoftodos,disable]{todonotes} % todonotes
+\usepackage[colorinlistoftodos]{todonotes} % todonotes
+\newcommand{\todoI}[1]{\todo[inline]{#1}}
+
+\usepackage{lipsum} % fülltexte
+\usepackage{amssymb}
+\usepackage{ulem}
+
+% label definitionen
+\renewcommand{\labelitemi}{$\triangleright$}
+\renewcommand{\labelitemii}{$\diamond$}
+\renewcommand{\labelitemiii}{$\circ$}
+
+% farbdefinitionen
+\definecolor{lightblue}{rgb}{0,0.6,1.0}
+\definecolor{lightgray}{rgb}{0.4,0.4,0.4}
+\definecolor{blue}{rgb}{0,0.3,0.6}
+\definecolor{darkblue}{rgb}{0,0.1,0.4}
+\definecolor{green}{rgb}{0,0.7,0.2}
+
+% schriftfarbe für überschriften
+\addtokomafont{section}{\color{darkblue}}
+\addtokomafont{subsection}{\color{blue}}
+\addtokomafont{subsubsection}{\color{lightgray}}
+\addtokomafont{paragraph}{\color{blue}}
+
+% Seiteneinstellungen
+\setlength{\topmargin}{1cm}
+\setlength{\headheight}{12pt}
+\setlength{\headsep}{20pt}
+\setlength{\topskip}{12pt}
+\setlength{\evensidemargin}{0pt}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\textheight}{250mm}
+\setlength{\textwidth}{160mm}
+\setlength{\voffset}{-2cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% schriftart und co
+\renewcommand*\familydefault{\sfdefault}
+\setkomafont{sectioning}{\normalfont\bfseries}
+\setkomafont{descriptionlabel}{\normalfont\bfseries}
+\setkomafont{captionlabel}{\bfseries\footnotesize}
+\setkomafont{caption}{\footnotesize}
+
+
+\usepackage{pgfgantt}
+\usetikzlibrary{shadows}
+\usetikzlibrary{shadings}
+
+%
+\usepackage{ifthen}
+\newboolean{includethis}
+\setboolean{includethis}{false} % abgabe version
+%\setboolean{includethis}{true} % mit allem
+\newcommand{\ifinclude}[1]{\ifthenelse{\boolean{includethis}}{#1}{}}
+
+\newcommand{\hide}[1]{}
+
+% dokumenten infos
+\title{\color{darkblue}
+    Thema \\[0.5em]
+    {\normalsize
+    --Expose v0.9--    \\
+    sub
+    }
+}
+\author{\color{lightgray} \textit{Name, Email} }
+\date{\color{lightgray}\today}
+
+\usepackage{setspace}
+%\onehalfspacing
+
+\sloppy
+
+\begin{document}
+% Titel
+\maketitle
+
+\section{Intro}
+Test \cite{Berlin}
+
+
+\section{Motivation}
+
+\section{Solution ideas}
+\paragraph{partx.}
+
+\paragraph{party.}
+
+\section{Timing}
+XY
+
+
+\section{Appendix} \label{sec:appendixlabel}
+
+
+%\bibliographystyle{alphadin-rg}
+\bibliographystyle{elsarticle-num}
+\bibliography{lit}
+%\hide{
+    \clearpage
+
+    \listoftodos{Todos}
+%}
+
+\end{document}

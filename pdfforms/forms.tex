@@ -1,0 +1,34 @@
+\documentclass[ngerman,a4paper,10pt]{scrartcl}
+
+\include{layout}
+
+% dokumenten infos
+
+\newcommand{\DocTitle}      {Title}
+\newcommand{\DocAuthor}     {author }
+\newcommand{\DocDate}       {\today}
+
+\begin{document}
+{
+    \centering
+    ~\\[4cm]
+    {\Huge \textbf{ \color{darkblue} \DocTitle } } \\[1cm]
+     \color{lightgray} \textit{\DocAuthor} \\ \DocDate \\[1cm]
+
+    {\small
+    \begin{flushright}
+        "`\textit{Einfache Logik ist die beste.}"'  \\
+        -- \textsc{Star Trek IV- Kirk}
+    \end{flushright}
+    }
+}
+\section{form test}
+\begin{Form}[action={....}]
+    \TextField{Textfield}\\[3em]
+    \CheckBox{Check} ~~~~~~~~\CheckBox{Box}\\[3em]
+    \ChoiceMenu{chouce}{Choice=on, Menu=ccc}\\[3em]
+    \Reset{Reset}
+    \Submit{submit}
+\end{Form}
+
+\end{document}

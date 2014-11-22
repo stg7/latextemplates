@@ -1,0 +1,22 @@
+import os
+import glob
+
+env = Environment()
+
+f = open("content.tex", "w")
+
+includefiles = []
+for ff in sorted(os.listdir("content")):
+    s = ff.split(".")
+    if(len(s) == 2 and s[1] == "tex"):
+        includefiles.append(s[0])
+
+# include all tex files in content directory
+for ff in includefiles:
+    f.write(r"    \include{content/" + ff + "}\n")
+
+f.close()
+
+env.PDF(target='main.pdf', source='main.tex')
+os.system("cp main.pdf thesis.pdf")
+#os.system("cp main.pdf ~/shares/Dropbox/main.pdf")

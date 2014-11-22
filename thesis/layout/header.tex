@@ -1,0 +1,243 @@
+\documentclass[
+    ngerman,
+    a4paper,
+    %twoside, % für zweiseiten druck
+    %openright,
+    %cleardoublepage=plain,
+    headsepline,
+    footsepline,
+    chapterprefix, % Für Kapitel X \\ Kapitelname
+    numbers=noenddot,
+    12pt,
+    fleqn,
+    bibliography=totoc, % literaturverzeichnis zum inhaltsverzeichnis
+    listof=totoc % alle anderen verzeichnisse auch zum inhaltsverzeichnis hinzufügen
+    ]{scrreprt}
+
+% packages
+\usepackage[utf8]{inputenc}
+
+% fülltext spielerein
+\usepackage{lipsum}
+\usepackage{blindtext}
+
+\usepackage[normalem]{ulem}
+\usepackage{fancybox}
+
+\usepackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{url}
+
+\usepackage{listings}
+
+\usepackage{longtable}
+\usepackage{tabularx}       % Fuer Tabellen laenger als eine Seite
+\usepackage{multicol,multirow}
+\usepackage{colortbl} % farbige tabellen
+
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{float,placeins}
+
+\renewcommand{\labelitemi}{$\triangleright$}
+\renewcommand{\labelitemii}{$\diamond$}
+\renewcommand{\labelitemiii}{$\circ$}
+
+% Definitonen
+% begin{definition} blabla bla \end{defitiniton}
+\newtheorem{definition}{Definition}
+
+\usepackage{amssymb}
+
+
+\usepackage[ngerman]{babel}
+\usepackage[automark]{scrpage2}
+
+% algos
+\usepackage[german, vlined,linesnumbered,boxruled]{packages/algorithm2e}
+%\usepackage[vlined,linesnumbered,boxed]{packages/algorithm2e}
+
+\usepackage{qtree} % für Bäume
+
+
+% latex pictures
+\usepackage{tikz}
+\usetikzlibrary{shapes,snakes,arrows,matrix,calc,er}
+\usepackage{pgfplots}
+
+%\usetikzlibrary{decorations,markings}
+\usepackage{booktabs}
+
+% Index erzeugen
+%\usepackage{scrindex} \usepackage{makeidx}
+%\makeindex{}
+
+\usepackage{csquotes} % deutsche Anführungszeichen durch "` und  "'
+
+%\usepackage[colorinlistoftodos,disable]{todonotes} % todonotes disable
+\usepackage[colorinlistoftodos]{todonotes} % todonotes
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{packages/wrapfig}
+
+% farbdefinitionen
+\definecolor{lightblue}{rgb}{0,0.6,1.0}
+\definecolor{lightgray}{rgb}{0.2,0.2,0.2}
+\definecolor{blue}{rgb}{0,0.3,0.6}
+\definecolor{darkblue}{rgb}{0,0.1,0.4}
+\definecolor{green}{rgb}{0,0.7,0.2}
+
+
+
+% Paket für Links innerhalb des PDF Dokuments
+\usepackage[%
+	%pdftitle={\thema{}},% Titel der erzeugten PDF Datei
+	%pdfauthor={\author{}},%
+	%pdfcreator={LaTeX Skript by stg7},
+	%pdfsubject={\thema{}},%
+	%pdfkeywords={\schluesselwoerter{}}
+	bookmarksopen=true,%
+	bookmarksopenlevel=1,%
+	plainpages=false%
+	]{hyperref}
+
+\hypersetup{%
+	colorlinks=true,% links einfaerben, oder box drum malen?
+	linkcolor={red},% verweise im doc, ua inhaltsverzeichnis
+	citecolor={blue},
+	filecolor={black},
+    filecolor=blue,
+	urlcolor={green}
+    }
+
+% Kopf- und Fußzeile
+\clearscrheadfoot
+\chead{\headmark} % automatischen Kapitelnamen rein
+\ofoot[\pagemark]{\pagemark} % oben rechts Seitenzahl laut Richtlinie
+%\ifoot{\inventarisierungsnr}
+\pagestyle{scrheadings}
+
+% --------------------
+
+% Seitendefinitionen
+
+\setlength{\topmargin}{0.5cm}
+\setlength{\headheight}{12pt}
+\setlength{\headsep}{10pt}
+\setlength{\topskip}{12pt}
+\setlength{\evensidemargin}{0pt}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\textheight}{240mm}
+\setlength{\textwidth}{160mm}
+\setlength{\voffset}{-2cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+
+% Schrifteinstellungen
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} % moderne schriftart
+\renewcommand*\familydefault{\sfdefault}
+
+\setkomafont{sectioning}{\normalfont\bfseries}
+\setkomafont{descriptionlabel}{\normalfont\bfseries}
+\setkomafont{captionlabel}{\bfseries\footnotesize}
+\setkomafont{caption}{\footnotesize}
+
+% schriftfarbe für überschriften
+
+\addtokomafont{chapter}{\color{darkblue}}
+\addtokomafont{section}{\color{darkblue}}
+\addtokomafont{subsection}{\color{blue}}
+\addtokomafont{subsubsection}{\color{lightgray}}
+\addtokomafont{paragraph}{\color{blue}}
+
+% für dictum
+\renewcommand*{\dictumwidth}{.5\textwidth}
+\renewcommand*{\dictumauthorformat}[1]{\textsc{#1}\bigskip}
+
+
+% eigene commands
+\newcommand{\onecm}{\hspace{1cm}}
+\newcommand{\hide}[1]{}
+
+\newcommand{\whide}[1]{\textcolor{white}{#1}}
+
+% Abbildungsreferenz
+\newcommand{\picref}[1]{Abbildung~\ref{#1}}
+
+% eventuelles Umbenennen des Literaturverzeichnisses in Quellen[verzeichnis]
+%\renewcommand{\bibname}{Quellen}
+
+% rausblenden
+\usepackage{ifthen}
+\newboolean{includethis}
+
+\newcommand{\zusatz}{}
+%\setboolean{includethis}{false} % abgabe version
+\setboolean{includethis}{true} % mit allem
+\newcommand{\ifinclude}[1]{\ifthenelse{\boolean{includethis}}{#1}{}}
+
+
+\usepackage{setspace}
+\singlespacing
+
+\usepackage{enumitem}
+\usepackage[printonlyused,nohyperlinks]{acronym} % abkürzungen
+
+\newcommand{\todoI}[1]{\todo[inline]{#1}}
+\newcommand{\note}[1]{\todo[inline,color=green!40]{#1}}
+\newcommand{\last}[1]{\todo[inline,color=blue!40]{#1}}
+
+\newcommand{\G}[1]{{ \color{green!45!black}#1}}
+\newcommand{\R}[1]{{ \color{red!45!black}#1}}
+\newcommand{\B}[1]{{ \color{blue!70!black}#1}}
+\newcommand{\W}[1]{{ \color{white}#1}}
+
+%listing setup
+\lstset{tabsize=4,
+    basicstyle=\footnotesize\ttfamily,
+    stringstyle=\color{Orange},
+    showstringspaces=false,
+    columns=fixed,
+    numberstyle=\tiny\ttfamily,
+    numbersep=15pt,
+    commentstyle=\color{LimeGreen},
+    language=[GNU]C++,
+    identifierstyle=\color{MidnightBlue}}
+
+\lstset{
+    numbers=right,
+    xrightmargin=2em,
+    breaklines=true,
+    breakatwhitespace=true,
+    prebreak=\mbox{\tiny$\searrow$},
+        postbreak=\mbox{{\color{blue}\tiny$\rightarrow$}},
+    numberbychapter=false,
+}
+
+% zentrierte Bilder in Tabellen aus l2picfaq.pdf
+% neuer Befehl: \includegraphicstotab[..]{..}
+% Verwendung analog wie \includegraphics
+\newlength{\myx} % Variable zum Speichern der Bildbreite
+\newlength{\myy} % Variable zum Speichern der Bildhöhe
+\newcommand\includegraphicstotab[2][\relax]{%
+    % Abspeichern der Bildabmessungen
+    \settowidth{\myx}{\includegraphics[{#1}]{#2}}%
+    \settoheight{\myy}{\includegraphics[{#1}]{#2}}%
+    % das eigentliche Einfügen
+    \parbox[c][1.1\myy][c]{\myx}{%
+    \includegraphics[{#1}]{#2}}%
+}% Ende neuer Befehl
+\newcommand{\Happy}{\includegraphicstotab[width=15px]{images/smiley/happy}}
+\newcommand{\Okay} {\includegraphicstotab[width=15px]{images/smiley/alien}}
+\newcommand{\Bad}  {\includegraphicstotab[width=15px]{images/smiley/bad}}
+
+
+% für später nur pdf grafiken, anstelle der png
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+%\renewcommand{\B}[1]{{ \color{white}#1}}
+
+\usepackage[all]{nowidow}

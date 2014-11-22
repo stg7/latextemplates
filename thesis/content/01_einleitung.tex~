@@ -1,0 +1,13 @@
+\chapter{Einleitung}
+Für das in \cite{Golembewski2011}, \cite{Golembewski2012} beschriebene Simulationsframework soll 
+ein Bewegungsmodell auf Grundlage von Openstreetmap entwickelt werden.
+
+\section{....Simulation}
+Beschreibung der aktuellen herangehensweise mit den synthetischen Topologien
+\section{Anforderungen an das erzeugte Modell}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width = \textwidth, keepaspectratio]{images/berlin}
+    \caption{Berlin }
+\end{figure}

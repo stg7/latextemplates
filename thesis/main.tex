@@ -1,0 +1,58 @@
+\include{layout/header}
+
+% infos über thema, author und uni
+\newcommand{\art}     {Masterarbeit \zusatz}
+\renewcommand{\author}{XY XY}
+\newcommand{\matrikel}{XY}
+\newcommand{\thema}   {XY }
+
+\newcommand{\prof}    {XY}
+\newcommand{\betreuer}{XY} %Betreuer
+
+\newcommand{\schluesselwoerter}{XY}
+
+\newcommand{\universitaet}{UNI}
+\newcommand{\ort}{Ort}
+\newcommand{\institut}{Institut}
+\newcommand{\fakultaet}{Fakultät}
+\newcommand{\fachgebiet}{Fachgebiet}
+
+
+% Abgabedatum
+% \year=2013
+% \month=12
+% \day=2
+
+% literatur
+\usepackage[style=alphabetic]{biblatex}
+\addbibresource{bibs/literatur.bib}
+\include{layout/acro}
+\begin{document}
+
+
+    \pagenumbering{gobble} % seitennummern aus
+    % titelseite einfügen
+    \include{layout/titlepage}
+    \clearpage
+
+    % danksagung
+    \include{layout/thx}
+    \cleardoublepage
+
+    \pagenumbering{roman}
+    \include{layout/abstract}
+
+    \cleardoublepage
+    {\small
+    \tableofcontents
+    \clearpage
+    }
+    \pagenumbering{arabic}
+    % inhalt einfügen
+    \input{content}
+
+
+\end{document}
+
+
+

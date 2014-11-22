@@ -1,0 +1,148 @@
+%    author: Steve Göring
+%    contact: stg7@gmx.de
+%    2014
+
+\documentclass{beamer}
+\usepackage[orientation=landscape,size=custom,width=16,height=9,scale=0.5,debug]{beamerposter}
+
+% für deutsche umlaute und ut8
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} % moderne schriftart
+
+\usepackage{ngerman}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{listings}
+
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    escapeinside={<@}{@>}
+}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,shadows,snakes,arrows,matrix,calc,er}
+\usepackage{framed, color}
+
+% farbdefinitionen
+\definecolor{lightblue}{rgb}{0.3,0.6,1.0}
+\definecolor{lightgray}{rgb}{0.5,0.6,0.6}
+\definecolor{lightred}{rgb}{1.0,0.4,0.4}
+\definecolor{lightgreen}{rgb}{0.4,1.0,0.4}
+\definecolor{blue}{rgb}{0,0.3,0.6}
+\definecolor{darkblue}{rgb}{0,0.1,0.4}
+\definecolor{green}{rgb}{0,0.7,0.2}
+\definecolor{darkerblue}{rgb}{0.2,0.5,1.0}
+\definecolor{textColor}{rgb}{1.0,1.0,1.0}
+
+% design änderungen
+\setbeamertemplate{footline}[frame number]
+\setbeamercolor{title}{fg=darkerblue}
+\setbeamercolor{author}{fg=lightgray}
+\setbeamercolor{frametitle}{fg=darkerblue}
+\setbeamercolor{background canvas}{bg=black}
+\setbeamercolor{normal text}{fg=textColor}
+\setbeamercolor{structure}{fg=lightblue}
+
+
+\renewcommand\sfdefault{phv}
+\renewcommand\familydefault{\sfdefault}
+% bold- text
+%\renewcommand{\seriesdefault}{\bfdefault}
+
+\usebackgroundtemplate{
+    \tikz\shade[shading=axis,outer color=black,inner color=black!50 ]
+        (-\paperwidth,-\paperheight) rectangle (2\paperwidth,2\paperheight);
+}
+
+\setbeamercovered{transparent}
+
+%design alternative
+% \setbeamertemplate{footline}[frame number]
+% \setbeamercolor{title}{fg=darkerblue}
+% \setbeamercolor{author}{fg=lightgray}
+% \setbeamercolor{frametitle}{fg=darkerblue}
+% \setbeamercolor{background canvas}{bg=white}
+% \setbeamercolor{normal text}{fg=black}
+% \setbeamercolor{structure}{fg=darkerblue}
+% \usebackgroundtemplate{ }
+
+
+
+% template einstellungen
+\setbeamertemplate{footline} {
+\leavevmode
+\hbox{\begin{beamercolorbox}[wd=.9\paperwidth,ht=2.5ex,dp=1.125ex]{author in head/foot}%
+\usebeamerfont{author in head/foot}\centering \insertsection ~~\insertsubsection
+\end{beamercolorbox}
+\begin{beamercolorbox}[wd=.1\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm ,rightskip=.3cm plus1fil]{title in head/foot}%
+\usebeamerfont{title in head/foot}\hfill\textcolor{white}{\insertframenumber/\inserttotalframenumber}
+\end{beamercolorbox}}
+\vskip0pt
+}
+
+% todo makro
+\newcommand{\todo}[1]{\textcolor{lightred}{#1}}
+% hide makro
+\newcommand{\hide}[1]{}
+
+\newcommand{\G}[1]{\textcolor{lightgreen}{#1}}
+\newcommand{\R}[1]{\textcolor{lightred}{#1}}
+
+
+%\year=2013
+%\month=6
+%\day=5
+
+
+% infos
+\title{
+    Title
+}
+\subtitle{
+    --Subtitle--
+}
+\author{Author}
+\date{\today}
+
+\begin{document}
+
+\frame{
+    \titlepage
+}
+
+\frame{
+    \frametitle{\contentsname}
+    \begin{multicols}{2}
+        \tableofcontents
+    \end{multicols}
+}
+
+\section{source code}
+\begin{frame}[fragile]
+    \frametitle{source code}
+    source code
+    \begin{lstlisting}[language=c++]
+    #inlucde <iostream>
+    int main() {
+        std::cout << "hello world" << std::endl;
+        return 0; // <@\G{test}@>
+    }
+    \end{lstlisting}
+\end{frame}
+
+\section{XY}
+
+\subsection{XY}
+\frame{
+    \frametitle{titel}
+    \begin{itemize}
+        \item Item XY \pause
+        \item item 2
+    \end{itemize}
+}
+
+
+\end{document}
+
