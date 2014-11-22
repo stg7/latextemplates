@@ -1,1 +1,4 @@
-**/.sconsign.dblite
+.sconsign.dblite
+*.pdf
+.sconf_temp/
+
