@@ -1,0 +1,184 @@
+\documentclass[11pt,a4paper,sans]{moderncv}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+\usepackage[a4paper, top=1.75cm, left=2.25cm, right=2.25cm, bottom=1.75cm]{geometry}
+\usepackage{todonotes}
+\usepackage{pdfpages}
+\usepackage[style=numeric]{biblatex}
+\addbibresource{pub.bib}
+
+\newcommand{\hide}[1]{}
+
+% moderncv themes
+\moderncvstyle{classic}     %%'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{grey}
+
+\newenvironment{MYitemize}{%
+              \renewcommand{\labelitemi}{}%
+                \begin{itemize}
+                \setlength{\itemindent}{1cm}
+                }
+                {\end{itemize}}
+
+
+\makeatletter
+\newcommand*{\subject}[1]{\def\@subject{#1}}                    %% new command added
+
+\usepackage{etoolbox}
+\patchcmd{\makeletterclosing}{3em}{2em}{}{} % abstand zur Unterschrift ändern
+
+\renewcommand*{\makelettertitle}{%
+  % recompute lengths (in case we are switching from letter to resume, or vice versa)
+  \recomputeletterlengths%
+  % sender contact info
+  \hfill%
+  \begin{minipage}{.5\textwidth}%
+    \raggedleft%
+    \addressfont\textcolor{color2}{%
+      {\bfseries\upshape\@firstname~\@lastname}\@firstdetailselementfalse%
+      \ifthenelse{\isundefined{\@addressstreet}}{}{\makenewline\addresssymbol\@addressstreet%
+        \ifthenelse{\equal{\@addresscity}{}}{}{\makenewline\@addresscity}% if \addresstreet is defined, \addresscity and addresscountry will always be defined but could be empty
+        \ifthenelse{\equal{\@addresscountry}{}}{}{\makenewline\@addresscountry}}%
+      \collectionloop{phones}{% the key holds the phone type (=symbol command prefix), the item holds the number
+        \makenewline\csname\collectionloopkey phonesymbol\endcsname\collectionloopitem}%
+      \ifthenelse{\isundefined{\@email}}{}{\makenewline\emailsymbol\emaillink{\@email}}%
+      \ifthenelse{\isundefined{\@homepage}}{}{\makenewline\homepagesymbol\httplink{\@homepage}}%
+      \ifthenelse{\isundefined{\@extrainfo}}{}{\makenewline\@extrainfo}}%
+    \end{minipage}\\[0.5em]
+  % recipient block
+  \ifthenelse{\isundefined{\@recipient}}{}{
+  	\begin{minipage}[t]{.5\textwidth}
+	    \raggedright%
+	    \addressfont%
+	    {\bfseries\upshape\@recipientname}\\%
+	    \@recipientaddress%
+  	\end{minipage}
+  }
+  % date
+  \hfill% US style
+%  \\[1em]% UK style
+  {\\[0.5em] \raggedleft \@date\\[1em]}% US informal style: "January 1, 1900"; UK formal style: "01/01/1900"
+  {\bfseries\@subject\\[1.5em]}%
+  % opening
+  \raggedright%
+  \@opening\\[1em]%
+  % ensure no extra spacing after \makelettertitle due to a possible blank line
+%  \ignorespacesafterend% not working
+
+  \hspace{0pt}\par\vspace{-\baselineskip}\vspace{-\parskip}}
+
+
+\makeatother
+
+\makeatletter
+\renewcommand*{\makeletterclosing}{
+  \@closing\\[3em]%
+ % \includegraphics{signature}\\% Insert signature
+  {\textcolor{darkgray}{\@firstname~\@lastname}}%
+  \ifthenelse{\isundefined{\@enclosure}}{}{%
+    \\%
+    \vfill%
+    {\color{color2}\itshape\enclname: \@enclosure}}}
+\makeatother
+%\usepackage{helvet}
+%\renewcommand{\sfdefault}{\rmdefault}
+
+% adjust the page margins
+\setlength{\hintscolumnwidth}{0.2\textwidth}
+
+% persönliche daten
+\firstname{Firstname}
+\familyname{Lastname}
+\title{CV}
+\address{Street}{Place}
+
+\mobile{Mobilephone}
+%\phone{}
+%\fax{}
+\email{email@email.com}
+%\homepage{www.johndoe.com}
+\photo[70pt][0.1pt]{picture}    % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+
+\begin{document}
+\renewcommand*{\namefont}{\fontsize{30}{30}\mdseries\upshape}
+
+
+% %-----       letter       ---------------------------------------------------------
+% % recipient data
+% \recipient{Company Recruitment team}{Company, Inc.\\123 somestreet\\some city}
+\subject{Application as}
+\date{Place, \today}
+\opening{XYZ,}
+\closing{\\[2em]XYZ}
+\enclosure[Appendix]{XYZ}
+
+\makelettertitle
+....
+....
+\makeletterclosing
+
+\clearpage
+
+\makecvtitle
+~\\[2em]
+\section{Personal}
+\cvitem{Birthday}   {XYZ}
+\cvitem{Place of Birth}     {XY}
+...
+~\\[2em]
+\section{School}
+% \cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}
+\cventry{XY -- XY}{XY}   {XY}  {}{}
+                {\textit{XY:} XY \vspace{0.5em}\newline
+                \textit{XY:} XY}
+
+~\\[2em]
+\section{Study}
+
+\cventry{XY/XY -- XY/XY}{Whatever} {Whereever}  {}{}
+								{
+								\textit{XY:} XY \vspace{0.5em} \newline
+                \textit{Modules:}
+                                     \begin{MYitemize}
+                                        \item XY
+                                        \item XY
+                                        \item XY
+                                     \end{MYitemize} \vspace{0.5em}
+                                \textit{XY:} \newline
+                                XY \vspace{0.5em}\newline
+                                \textit{XY:} XY
+                                }
+
+
+~\\[2em]
+\section{XY}
+\cventry{...}{...}   {...}{}{}{
+    \textit{..:} .. \\
+    ...
+  }
+
+
+~\\[2em]
+\section{Language Skills}
+\cvlanguage{XY}     {XY}{}
+
+~\\[2em]
+\section{Other}
+\cvitem{XY}     {XY}
+
+....
+
+~\\[2em]
+\section{Publications}
+\nocite{*}
+\printbibliography[heading=none]
+
+\emptysection \closesection
+~\\[0em] PLACE, \today
+
+\clearpage
+\includepdf[pages=-, pagecommand={\thispagestyle{plain}}, scale=1.0]{certificate}
+
+\end{document}

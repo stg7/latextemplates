@@ -1,0 +1,73 @@
+\documentclass[
+    ngerman,
+    a4paper,
+    headsepline,
+    footsepline,
+    12pt
+    ]{scrartcl}
+
+\include{layout}
+
+% infos über thema, author und art
+\newcommand{\art}{Was für ein Dokument}
+\renewcommand{\author}{Name}
+\newcommand{\thema}{{\Huge Haupttitel} \\[2em]
+    Untertitel}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Titelseite & Inhaltsverzeichnis
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{titlepage}
+    \centering
+
+        \colorbox{Green}{\hspace{30em}}
+        \begin{center}
+        {\LARGE \bf \art }
+        \end{center}
+        \colorbox{Green}{\hspace{30em}}
+
+        ~\\[8em]
+
+        % thema
+
+        {\LARGE \bf \thema} \\[1cm]
+        ~\\[5em]
+        % authoren infos
+        \begin{tabular}{rl}
+            \hline \\
+            von:  & \quad \author \\[0.5em]
+            Datum: & \quad \today \\[0.5em]
+        \end{tabular}
+        \\[10em]
+
+        \colorbox{lightgray}{\hspace{30em}}
+    \end{titlepage}
+
+    \clearpage
+
+    \pagenumbering{roman}
+    % inhaltsverzeichnis
+    \tableofcontents
+
+    \newpage
+
+    \pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HIER BEGINNT DER INHALT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Punkt1}
+
+\section{Punkt2}
+\subsection{Punkt2.1}
+\subsection{Punkt2.1}
+
+
+\end{document}
+
+
+

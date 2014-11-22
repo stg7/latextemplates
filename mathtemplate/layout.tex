@@ -1,0 +1,97 @@
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} % moderne schriftart
+
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx,color}
+\usepackage[colorlinks]{hyperref}
+\usepackage[colorinlistoftodos]{todonotes} % todonotes
+\usepackage{lipsum} % fülltexte
+\usepackage{amssymb}
+\usepackage{ulem}
+
+% label definitionen
+\renewcommand{\labelitemi}{$\triangleright$}
+\renewcommand{\labelitemii}{$\diamond$}
+\renewcommand{\labelitemiii}{$\circ$}
+
+% farbdefinitionen
+\definecolor{lightblue}{rgb}{0,0.6,1.0}
+\definecolor{lightgray}{rgb}{0.4,0.4,0.4}
+\definecolor{blue}{rgb}{0,0.3,0.6}
+\definecolor{darkblue}{rgb}{0,0.1,0.4}
+\definecolor{green}{rgb}{0,0.7,0.2}
+
+
+% schriftart und co
+\renewcommand*\familydefault{\sfdefault}
+\setkomafont{sectioning}{\normalsize\bfseries}
+\setkomafont{descriptionlabel}{\normalfont\bfseries}
+\setkomafont{captionlabel}{\bfseries\footnotesize}
+\setkomafont{caption}{\footnotesize}
+
+% schriftfarbe für überschriften
+\addtokomafont{section}{\color{darkblue}}
+\addtokomafont{subsection}{\color{blue}}
+\addtokomafont{subsubsection}{\color{lightgray}}
+\addtokomafont{paragraph}{\color{blue}}
+
+\setlength{\topmargin}{0.5cm}
+\setlength{\headheight}{10pt}
+\setlength{\headsep}{10pt}
+\setlength{\topskip}{5pt}
+\setlength{\evensidemargin}{0pt}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\textheight}{240mm}
+\setlength{\textwidth}{160mm}
+\setlength{\voffset}{-2cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+
+
+%
+\usepackage{ifthen}
+\newboolean{includethis}
+\setboolean{includethis}{false} % abgabe version
+%\setboolean{includethis}{true} % mit allem
+\newcommand{\ifinclude}[1]{\ifthenelse{\boolean{includethis}}{#1}{}}
+
+
+\usepackage{framed}
+%blauer rahmen für lösung (leftbar neu definiert)
+\renewenvironment{leftbar}{%
+  \def\FrameCommand{\textcolor{blue}{\vrule width 2pt} \hspace{10pt}}%
+  \MakeFramed {\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+
+\usepackage{esvect}
+\usepackage{comment}
+
+\newcommand{\punkte}[1]{
+    \begin{flushright}
+        \framebox [2cm] [r] {{#1}~BE~}
+    \end{flushright}
+}
+
+\newcounter{exercisecounter}
+
+\newenvironment{task}{
+    \addtocounter{exercisecounter}{1}    \par
+    {\bf \color{lightgray} \alph{exercisecounter})~} %    \par %    \leftskip3em
+}
+{ }
+\newcommand{\hide}[1]{}
+
+
+\newenvironment{solution}{  \begin{leftbar} {\bf \textcolor{blue}{Lösung} ~} }
+{   \end{leftbar}  }
+
+\newcommand{\onecm}{\hspace{1cm}}
+\newcommand{\Rand}[1]{\todo[noline,color=green!40]{#1}}
+\newcommand{\Hinweis}[1]{\reversemarginpar \todo[noline,color=gray!40]{#1} \reversemarginpar}
+
+\sloppy

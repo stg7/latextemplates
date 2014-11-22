@@ -1,0 +1,2 @@
+env = Environment()
+env.PDF(target='letter.pdf',source='letter.tex')

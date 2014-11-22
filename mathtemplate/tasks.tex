@@ -1,0 +1,37 @@
+\documentclass[ngerman,a4paper,10pt]{scrartcl}
+
+\include{layout}
+\usepackage{eurosym}
+
+% document information
+
+\newcommand{\DocTitle}      {Titel}
+\newcommand{\DocAuthor}     {Author }
+\newcommand{\DocDate}       {\today}
+
+\begin{document}
+{
+    \centering
+    ~\\[4cm]
+    {\Huge \textbf{ \color{darkblue} \DocTitle } } \\[1cm]
+     \color{lightgray} \textit{\DocAuthor} \\ \DocDate \\[1cm]
+
+    {\small
+    \begin{flushright}
+        "`\textit{Ihr Lehrer Mr.Spock würde es wohl so sagen: Ich denke gerne an die Chance einer Möglichkeit.}"'  \\
+        -- \textsc{Star Trek - Kirk}
+    \end{flushright}
+    }
+}
+\section{Section1}
+Task Intro
+
+\task{
+Task definition
+}
+\begin{solution}
+solution
+\end{solution}
+
+
+\end{document}

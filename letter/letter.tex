@@ -1,0 +1,45 @@
+\documentclass{scrlttr2}
+\usepackage{cmap}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}        % Computer Modern-Schrift (TYPE1-tauglich)
+\usepackage{microtype}        % echter Blocksatz
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{ellipsis}        % Korrigiert den Weißraum um Auslassungspunkte
+\KOMAoptions{%
+foldmarks=true,
+backaddress=true,
+fromphone=false,
+fromemail,
+enlargefirstpage=true,
+paper=A4,    %
+fontsize=12pt,    %
+fromalign=left,    %
+draft=false    %
+}
+\setkomavar{date}{Submission Date}
+\setkomavar{fromname}{From}
+\setkomavar{fromaddress}{Street \\ Place}
+%\setkomavar{fromphone}{PHONE}
+\setkomavar{fromemail}{EMAIL}
+\renewcommand*{\raggedsignature}{\raggedright}
+\setkomavar{place}{PLACE}
+
+
+\begin{document}
+
+\setkomavar{subject}{Subject}
+\begin{letter}{ ToName\\ ToStreet\\ ToPlace }
+
+
+\opening{Opening,}
+whatever
+
+\closing{Regards,}
+\vskip-5em
+
+\end{letter}
+
+\end{document}
