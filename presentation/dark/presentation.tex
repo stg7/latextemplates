@@ -82,6 +82,12 @@
 \vskip0pt
 }
 
+\usepackage{biblatex}
+\addbibresource{literatur.bib}
+\setbeamertemplate{bibliography item}[text]
+\let\oldcite=\cite
+\renewcommand{\cite}[1]{\textcolor[rgb]{.4,.4,.4}{\oldcite{#1}}}
+
 % todo makro
 \newcommand{\todo}[1]{\textcolor{lightred}{#1}}
 % hide makro
@@ -139,10 +145,13 @@
     \frametitle{titel}
     \begin{itemize}
         \item Item XY \pause
-        \item item 2
+        \item item 2 \cite{Berlin}
     \end{itemize}
 }
-
+\subsection{Sources}
+\frame[allowframebreaks] {
+    \printbibliography
+}
 
 \end{document}
 
