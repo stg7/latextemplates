@@ -1,37 +1,49 @@
 \documentclass[ngerman,a4paper,10pt]{scrartcl}
-
 \include{layout}
-\usepackage{eurosym}
+
+% default settings: show solution
+% for hiding solutions just uncomment following line
+%\renewcommand{\hide}[1]{}
 
 % document information
 
 \newcommand{\DocTitle}      {Titel}
-\newcommand{\DocAuthor}     {Author }
+\newcommand{\DocAuthor}     {Author}
 \newcommand{\DocDate}       {\today}
 
 \begin{document}
-{
-    \centering
-    ~\\[4cm]
-    {\Huge \textbf{ \color{darkblue} \DocTitle } } \\[1cm]
-     \color{lightgray} \textit{\DocAuthor} \\ \DocDate \\[1cm]
 
-    {\small
-    \begin{flushright}
-        "`\textit{Ihr Lehrer Mr.Spock würde es wohl so sagen: Ich denke gerne an die Chance einer Möglichkeit.}"'  \\
-        -- \textsc{Star Trek - Kirk}
-    \end{flushright}
-    }
+\mkTitle{
+"`\textit{Ihr Lehrer Mr.Spock würde es wohl so sagen: Ich denke gerne an die Chance einer Möglichkeit.}"'  \\
+-- \textsc{Star Trek - Kirk}
 }
+
 \section{Section1}
 Task Intro
 
 \task{
 Task definition
 }
-\begin{solution}
-solution
-\end{solution}
+\task{
+Task definition
+}
+\task{
+Task definition
+\points{2}
+\hint{hint}
+\cmnt{cmt}
+}
+\task{
+Task definition
+}
+\solution{
+...
+}
+
+\section{Section1}
+\task{
+Task definition
+}
 
 
 \end{document}

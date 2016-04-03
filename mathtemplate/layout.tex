@@ -4,6 +4,7 @@
 
 \usepackage{enumerate}
 \usepackage{enumitem}
+\usepackage{eurosym}
 
 \usepackage[ngerman]{babel}
 \usepackage{amsmath}
@@ -52,15 +53,6 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{3pt}
 
-
-%
-\usepackage{ifthen}
-\newboolean{includethis}
-\setboolean{includethis}{false} % abgabe version
-%\setboolean{includethis}{true} % mit allem
-\newcommand{\ifinclude}[1]{\ifthenelse{\boolean{includethis}}{#1}{}}
-
-
 \usepackage{framed}
 %blauer rahmen für lösung (leftbar neu definiert)
 \renewenvironment{leftbar}{%
@@ -71,27 +63,47 @@
 \usepackage{esvect}
 \usepackage{comment}
 
-\newcommand{\punkte}[1]{
+\newcommand{\points}[1]{
     \begin{flushright}
-        \framebox [2cm] [r] {{#1}~BE~}
+        \framebox[2cm][r]{{#1}~BE~}
     \end{flushright}
 }
 
-\newcounter{exercisecounter}
+\usepackage{chngcntr}
+\newcounter{exercisecounter}[subsection]
+\counterwithin*{exercisecounter}{section}
 
 \newenvironment{task}{
     \addtocounter{exercisecounter}{1}    \par
-    {\bf \color{lightgray} \alph{exercisecounter})~} %    \par %    \leftskip3em
+    {\textbf{\color{lightgray} \alph{exercisecounter})~}} %    \par %    \leftskip3em
 }
 { }
-\newcommand{\hide}[1]{}
+\newcommand{\hide}[1]{#1}
 
+\newcommand{\mkTitle}[1]{
+{
+    \centering
+    ~\\[2cm]
+    {\Huge \textbf{ \color{darkblue} \DocTitle } } \\[1cm]
+     \color{lightgray} \textit{\DocAuthor} \\ \DocDate \\[1cm]
 
-\newenvironment{solution}{  \begin{leftbar} {\bf \textcolor{blue}{Lösung} ~} }
-{   \end{leftbar}  }
+    {\small
+    \begin{flushright}
+        #1
+    \end{flushright}
+    }
+}
+}
+
+\newenvironment{solution}[1]{
+\hide{ 
+\begin{leftbar} \textbf{ \textcolor{blue}{Lösung} ~} 
+#1
+\end{leftbar}}
+}
 
 \newcommand{\onecm}{\hspace{1cm}}
-\newcommand{\Rand}[1]{\todo[noline,color=green!40]{#1}}
-\newcommand{\Hinweis}[1]{\reversemarginpar \todo[noline,color=gray!40]{#1} \reversemarginpar}
+\newcommand{\cmnt}[1]{\todo[noline,color=green!40]{#1}}
+\newcommand{\hint}[1]{\reversemarginpar \todo[noline,color=gray!40]{#1} \reversemarginpar}
 
 \sloppy
