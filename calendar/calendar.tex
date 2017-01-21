@@ -1,0 +1,59 @@
+\documentclass[ngerman,landscape,fontsize=14pt]{scrartcl}
+\usepackage[margin=0pt]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{translator}
+
+\usepackage{lmodern}
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+
+\usepackage{datetime}
+
+\usepackage{tikz}
+\usetikzlibrary{calendar}
+
+\newcommand\Kalender[2]{%
+\centering
+\includegraphics[height=16cm, keepaspectratio]{#2}
+\vfill{}
+    {\centering\Huge \textbf{\monthname[#1]}}
+    \begin{tikzpicture}
+        \draw [line cap=round,red, thick] (0,-.75em) -- (0.97*\paperwidth,-.75em);
+    \end{tikzpicture}
+
+\vfill{}
+    \begin{tikzpicture}
+        \calendar[dates=2017-#1-01 to 2017-#1-last, month list, %
+            every day/.style={font=\Large,}, %
+            day xshift=1.7em] if (Sunday) [red];
+    \end{tikzpicture}
+\vfill{}
+\clearpage
+}
+
+\begin{document}
+\pagecolor{black}
+\color{white}
+
+{
+\centering
+\includegraphics[height=16cm, keepaspectratio]{imgs/00}
+\vfill{}
+    {\centering\Huge \textbf{2017}}
+    \begin{tikzpicture}
+        \draw [line cap=round,red, thick] (0,-.75em) -- (0.97*\paperwidth,-.75em);
+    \end{tikzpicture}
+\vfill{}
+\Large ~
+\vfill{}
+\clearpage
+}
+
+\foreach[count=\i] \bild in {
+  imgs/01,imgs/02,imgs/03,imgs/04,
+  imgs/05,imgs/06,imgs/07,imgs/08,
+  imgs/09,imgs/10,imgs/11,imgs/12%
+  }{\Kalender{\i}{\bild}}
+
+\end{document}
